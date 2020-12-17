@@ -1,5 +1,7 @@
 package com.demo.array;
 
+import java.util.concurrent.*;
+
 public class SparseArray {
 
     /**
@@ -14,6 +16,22 @@ public class SparseArray {
 
     private volatile int size = 0;
 
+
+    public static void main(String[] args) {
+//        ThreadPoolExecutor executorService =  new ThreadPoolExecutor(5,5,5, TimeUnit.MINUTES,new LinkedBlockingQueue<>());
+//        executorService.execute();
+        int i =  1 << 29;
+        int n = 0 << 29;
+        System.out.println(n);
+        Thread t = new Thread(()->{});
+        t.start();
+        try {
+            t.join();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     //棋盘
     int[][] arr = new int[height][width];
@@ -34,7 +52,7 @@ public class SparseArray {
         sparseArray[2][size + 1] = o;
         sparseArray[2][0] = size++;
     }
-    
+
     private int[][] toArray() {
         if (sparseArray.length == 0) {
             return new int[][]{};
